@@ -25,3 +25,13 @@ const factorial = function(num) {
     }
     return factor
 };
+
+export function fillInput(e) {
+    const input = document.querySelector('input');
+    input.value = input.value.concat('', e.target.textContent);
+}
+
+export function clearInput(e) {
+    const input = document.querySelector('input');
+    input.value = ""
+}
