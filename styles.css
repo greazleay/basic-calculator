@@ -1,0 +1,102 @@
+:root {
+    --wide: 28rem;
+    --bcol: black;
+    --col: white;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 17px;
+    font-family: 'Trebuchet MS';
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+      color: #eee;
+      background: #121212;
+    }
+  
+    body a {
+      color: #809fff;
+    }
+  }
+
+.container {
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center center;
+}
+
+h1 {
+    flex: 1 1 auto;
+    align-self: center;
+}
+
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    flex-flow: column wrap;
+    place-content: center center;
+    background-color: var(--bcol);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+input {
+    width: var(--wide);
+    height: 6rem;
+    flex: 1 1 auto;
+    margin-bottom: 1rem;
+    background-color: var(--bcol);
+    color: white;
+    text-align: right;
+    font-size: 3.5rem;
+    border: var(--bcol);
+    outline: none;
+}
+
+.btns {
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    height: 34rem;
+    width: var(--wide);
+}
+
+.btn {
+    border: none;
+    border-radius: 9999px;
+    font-size: 2rem;
+    margin: 5px;
+}
+
+button:nth-child(-n+4) {
+    background-color: rgb(187, 184, 184);
+  }
+
+button:nth-last-child(-n+16) {
+    background-color: rgba(255, 244, 244, 0.3);
+    color: var(--col);
+}
+  
+button:nth-last-child(4n+5), button:last-child {
+    background-color: rgba(245, 150, 7, 0.87);
+    color: var(--col);
+}
