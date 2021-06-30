@@ -5,7 +5,7 @@ const body = document.querySelector('body');
 
 const styles = document.createElement('link');
 styles.setAttribute('rel', 'stylesheet');
-styles.setAttribute('href', '/styles.css');
+styles.setAttribute('href', './styles.css');
 const meta = document.querySelector('meta[charset="UTF-8"]');
 meta.parentNode.insertBefore(styles, meta)
 
@@ -20,7 +20,7 @@ const loadScripts = (url) => {
     body.appendChild(script);
 }
 
-loadScripts('/scripts.js')
+loadScripts('./scripts.js')
 
 const h1 = document.createElement('h1');
 h1.textContent = `Basic Calculator`
