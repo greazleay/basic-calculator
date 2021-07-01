@@ -1,4 +1,4 @@
-import { fillInput, clearInput } from "./scripts.js";
+import { fillInput, clearInput, operate } from "./scripts.js";
 
 const head = document.querySelector('head');
 const body = document.querySelector('body');
@@ -31,7 +31,7 @@ main.classList.add('main');
 container.appendChild(main);
 
 const input = document.createElement('input');
-// input.setAttribute('value', '0')
+input.setAttribute('value', '0');
 main.appendChild(input);
 
 const buttons = document.createElement('div');
@@ -49,20 +49,20 @@ const addButton = (value, click) => {
 addButton(`C`, clearInput);
 addButton(`+/-`);
 addButton(`%`);
-addButton(`/`);
+addButton(`/`, fillInput);
 addButton(`7`, fillInput);
 addButton(`8`, fillInput);
 addButton(`9`, fillInput);
-addButton(`*`);
+addButton(`*`, fillInput);
 addButton(`4`, fillInput);
 addButton(`5`, fillInput);
 addButton(`6`, fillInput);
-addButton(`+`);
+addButton(`+`, fillInput);
 addButton(`1`, fillInput);
 addButton(`2`, fillInput);
 addButton(`3`, fillInput);
-addButton(`-`);
+addButton(`-`, fillInput);
 addButton(`0`, fillInput);
-addButton(`.`);
-addButton(`=`);
-addButton(`!`);
+addButton(`.`, fillInput);
+addButton(`=`, operate);
+addButton(`!`, fillInput);

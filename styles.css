@@ -4,10 +4,15 @@
     --col: white;
 }
 
+@font-face {
+    font-family: "custom";
+    src: url('./fonts/Lato-Light.ttf');
+}
+
 html {
     box-sizing: border-box;
     font-size: 17px;
-    font-family: 'Trebuchet MS';
+    font-family: 'custom';
 }
 
 *, *::before, *::after {
