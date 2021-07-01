@@ -44,7 +44,7 @@ export function operate() {
 
     switch (true) {
         case input.value.includes('!'):
-            input.value = factorial(arr[arr.indexOf('+') - 1])
+            input.value = factorial(arr[arr.indexOf('!') - 1])
             break;
         case input.value.includes('+'):
             input.value = add(arr[arr.indexOf('+') - 1], arr[arr.indexOf('+') + 1]);
