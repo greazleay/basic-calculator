@@ -1,17 +1,17 @@
 const add = function(a, b) {
-	return a + b;
+	return (parseInt(a) + parseInt(b));
 };
 
 const subtract = function(a, b) {
-	return a - b
+	return (parseInt(a) - parseInt(b))
 };
 
 const multiply = function(a, b) {
-    return a * b
+    return (parseInt(a) * parseInt(b))
 };
 
 const divide = function(a, b) {
-	return a / b;
+	return (parseInt(a) / parseInt(b));
 };
 
 // const power = function(a, b) {
@@ -20,7 +20,7 @@ const divide = function(a, b) {
 
 const factorial = function(num) {
     let factor = 1;
-    for (let i = 1; i <= num; i++) {
+    for (let i = 1; i <= parseInt(num); i++) {
         factor *= i;
     }
     return factor
@@ -39,22 +39,24 @@ export function clearInput(e) {
 
 export function operate() {
     const input = document.querySelector('input');
+    const regex = /(\d+)/g;
+    const arr = input.value.split(regex);
 
     switch (true) {
         case input.value.includes('!'):
-            input.value = factorial(parseInt(input.value[input.value.indexOf('!') - 1]))
+            input.value = factorial(arr[arr.indexOf('+') - 1])
             break;
         case input.value.includes('+'):
-            input.value = add(parseInt(input.value[input.value.indexOf('+') - 1]), parseInt(input.value[input.value.indexOf('+') + 1]))
+            input.value = add(arr[arr.indexOf('+') - 1], arr[arr.indexOf('+') + 1]);
             break;
         case input.value.includes('-'):
-            input.value = subtract(parseInt(input.value[input.value.indexOf('-') - 1]), parseInt(input.value[input.value.indexOf('-') + 1]))
+            input.value = subtract(arr[arr.indexOf('-') - 1], arr[arr.indexOf('-') + 1]);
             break;
         case input.value.includes('*'):
-            input.value = multiply(parseInt(input.value[input.value.indexOf('*') - 1]), parseInt(input.value[input.value.indexOf('*') + 1]))
+            input.value = multiply(arr[arr.indexOf('*') - 1], arr[arr.indexOf('*') + 1]);
             break;
         case input.value.includes('/'):
-            input.value = divide(parseInt(input.value[input.value.indexOf('/') - 1]), parseInt(input.value[input.value.indexOf('/') + 1]))
+            input.value = divide(arr[arr.indexOf('/') - 1], arr[arr.indexOf('/') + 1]);
             break;     
         default:
             break;
