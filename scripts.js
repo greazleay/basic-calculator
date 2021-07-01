@@ -14,10 +14,6 @@ const divide = function(a, b) {
 	return (parseInt(a) / parseInt(b));
 };
 
-// const power = function(a, b) {
-// 	return Math.pow(a, b)
-// };
-
 const factorial = function(num) {
     let factor = 1;
     for (let i = 1; i <= parseInt(num); i++) {
@@ -39,8 +35,7 @@ export function clearInput(e) {
 
 export function operate() {
     const input = document.querySelector('input');
-    const regex = /(\d+)/g;
-    const arr = input.value.split(regex);
+    const arr = input.value.split(/(\d+)/).filter(e => e != '');
 
     switch (true) {
         case input.value.includes('!'):
@@ -52,11 +47,11 @@ export function operate() {
         case input.value.includes('-'):
             input.value = subtract(arr[arr.indexOf('-') - 1], arr[arr.indexOf('-') + 1]);
             break;
-        case input.value.includes('*'):
-            input.value = multiply(arr[arr.indexOf('*') - 1], arr[arr.indexOf('*') + 1]);
+        case input.value.includes('×'):
+            input.value = multiply(arr[arr.indexOf('×') - 1], arr[arr.indexOf('×') + 1]);
             break;
-        case input.value.includes('/'):
-            input.value = divide(arr[arr.indexOf('/') - 1], arr[arr.indexOf('/') + 1]);
+        case input.value.includes('÷'):
+            input.value = divide(arr[arr.indexOf('÷') - 1], arr[arr.indexOf('÷') + 1]);
             break;     
         default:
             break;

@@ -1,13 +1,6 @@
 import { fillInput, clearInput, operate } from "./scripts.js";
 
-const head = document.querySelector('head');
 const body = document.querySelector('body');
-
-const styles = document.createElement('link');
-styles.setAttribute('rel', 'stylesheet');
-styles.setAttribute('href', './styles.css');
-const meta = document.querySelector('meta[charset="UTF-8"]');
-meta.parentNode.insertBefore(styles, meta)
 
 const container = document.createElement('div');
 container.classList.add('container');
@@ -49,17 +42,17 @@ const addButton = (value, click) => {
 addButton(`C`, clearInput);
 addButton(`+/-`);
 addButton(`%`);
-addButton(`/`, fillInput);
+addButton(`÷`, fillInput);
 addButton(`7`, fillInput);
 addButton(`8`, fillInput);
 addButton(`9`, fillInput);
-addButton(`*`, fillInput);
+addButton(`×`, fillInput);
 addButton(`4`, fillInput);
 addButton(`5`, fillInput);
 addButton(`6`, fillInput);
 addButton(`+`, fillInput);
 addButton(`1`, fillInput);
-addButton(`2`, fillInput);
+addButton(`2`, fillInput);          
 addButton(`3`, fillInput);
 addButton(`-`, fillInput);
 addButton(`0`, fillInput);
