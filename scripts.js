@@ -22,7 +22,16 @@ const factorial = function(num) {
     return factor
 };
 
+let cleared = 0;
+
+function toClear() {
+    const input = document.querySelector('input');
+    input.value = "";
+    cleared = 0;
+}
+
 export function fillInput(e) {
+    if (cleared === 1) toClear();
     const input = document.querySelector('input');
     if (input.value === '0') input.value = '';
     input.value = input.value.concat('', e.target.textContent);
@@ -56,4 +65,5 @@ export function operate() {
         default:
             break;
     }
+    cleared = 1;
 }
