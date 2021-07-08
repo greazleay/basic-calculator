@@ -1,37 +1,37 @@
 const add = function(a, b) {
-	return (parseInt(a) + parseInt(b));
+	return (Math.round((Number(a) + Number(b)) * 100) / 100);
 };
 
 const subtract = function(a, b) {
-	return (parseInt(a) - parseInt(b))
+	return (Math.round((Number(a) - Number(b)) * 100) / 100)
 };
 
 const multiply = function(a, b) {
-    return (parseInt(a) * parseInt(b))
+    return (Math.round((Number(a) * Number(b)) * 100) / 100)
 };
 
 const divide = function(a, b) {
-	return (parseInt(a) / parseInt(b));
+	return (Math.round((Number(a) / Number(b)) * 100) / 100);
 };
 
 const factorial = function(num) {
     let factor = 1;
-    for (let i = 1; i <= parseInt(num); i++) {
+    for (let i = 1; i <= Number(num); i++) {
         factor *= i;
     }
     return factor
 };
 
-let cleared = 0;
+let cleared = true;
 
 function toClear() {
     const input = document.querySelector('input');
     input.value = "";
-    cleared = 0;
+    cleared = true;
 }
 
 export function fillInput(e) {
-    if (cleared === 1) toClear();
+    if (!cleared) toClear();
     const input = document.querySelector('input');
     if (input.value === '0') input.value = '';
     input.value = input.value.concat('', e.target.textContent);
@@ -44,7 +44,7 @@ export function clearInput(e) {
 
 export function operate() {
     const input = document.querySelector('input');
-    const arr = input.value.split(/(\d+)/).filter(e => e != '');
+    const arr = input.value.split(/(\d*\.\d*)|(\d*)/).filter(e => !!e);
 
     switch (true) {
         case input.value.includes('!'):
@@ -65,5 +65,5 @@ export function operate() {
         default:
             break;
     }
-    cleared = 1;
+    cleared = false;
 }
