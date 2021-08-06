@@ -39,23 +39,39 @@ const addButton = (value, click) => {
     buttons.appendChild(button)
 };
 
-addButton(`C`, clearInput);
-addButton(`+/-`);
-addButton(`%`);
-addButton(`÷`, fillInput);
-addButton(`7`, fillInput);
-addButton(`8`, fillInput);
-addButton(`9`, fillInput);
-addButton(`×`, fillInput);
-addButton(`4`, fillInput);
-addButton(`5`, fillInput);
-addButton(`6`, fillInput);
-addButton(`+`, fillInput);
-addButton(`1`, fillInput);
-addButton(`2`, fillInput);          
-addButton(`3`, fillInput);
-addButton(`-`, fillInput);
-addButton(`0`, fillInput);
-addButton(`.`, fillInput);
-addButton(`=`, operate);
-addButton(`!`, fillInput);
+const row1 = [['C', clearInput], ['+/-'], ['%'], ['÷', fillInput]];
+row1.forEach(item => addButton(item[0], item[1]));
+
+const row2 = [['7', fillInput], ['8', fillInput], ['9', fillInput], ['×', fillInput]];
+row2.forEach(item => addButton(item[0], item[1]));
+
+const row3 = [['4', fillInput], ['5', fillInput], ['6', fillInput], ['+', fillInput]];
+row3.forEach(item => addButton(item[0], item[1]));
+
+const row4 = [['1', fillInput], ['2', fillInput], ['3', fillInput], ['-', fillInput]];
+row4.forEach(item => addButton(item[0], item[1]));
+
+const row5 = [['0', fillInput], ['.', fillInput], ['=', operate], ['!', fillInput]];
+row5.forEach(item => addButton(item[0], item[1]));
+
+// addButton(`C`, clearInput);
+// addButton(`+/-`);
+// addButton(`%`);
+// addButton(`÷`, fillInput);
+// addButton(`7`, fillInput);
+// addButton(`8`, fillInput);
+// addButton(`9`, fillInput);
+// addButton(`×`, fillInput);
+// addButton(`4`, fillInput);
+// addButton(`5`, fillInput);
+// addButton(`6`, fillInput);
+// addButton(`+`, fillInput);
+// addButton(`1`, fillInput);
+// addButton(`2`, fillInput);          
+// addButton(`3`, fillInput);
+// addButton(`-`, fillInput);
+// addButton(`0`, fillInput);
+// addButton(`.`, fillInput);
+// addButton(`=`, operate);
+// addButton(`!`, fillInput);
+
