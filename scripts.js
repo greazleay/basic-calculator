@@ -1,25 +1,25 @@
-const add = function(a, b) {
-	return (Math.round((Number(a) + Number(b)) * 100) / 100);
+const add = function (a = 0, b = a) {
+    return (Math.round((Number(a) + Number(b)) * 100) / 100);
 };
 
-const subtract = function(a, b) {
-	return (Math.round((Number(a) - Number(b)) * 100) / 100)
+const subtract = function (a = 0, b = a) {
+    return (Math.round((Number(a) - Number(b)) * 100) / 100)
 };
 
-const multiply = function(a, b) {
+const multiply = function (a = 1, b = a) {
     return (Math.round((Number(a) * Number(b)) * 100) / 100)
 };
 
-const divide = function(a, b) {
-	return (Math.round((Number(a) / Number(b)) * 100) / 100);
+const divide = function (a = 1, b = a) {
+    return (Math.round((Number(a) / Number(b)) * 100) / 100);
 };
 
-const factorial = function(num) {
+const factorial = function (num) {
     let factor = 1;
     for (let i = 1; i <= Number(num); i++) {
         factor *= i;
     }
-    return factor
+    return factor;
 };
 
 let cleared = true;
@@ -44,7 +44,7 @@ export function clearInput(e) {
 
 export function operate() {
     const input = document.querySelector('input');
-    const arr = input.value.split(/(\d*\.\d*)|(\d*)/).filter(e => !!e);
+    const arr = input.value.split(/(\d*\.\d*)|(\d*)/).filter(num => !!num);
 
     switch (true) {
         case input.value.includes('!'):
@@ -61,7 +61,7 @@ export function operate() {
             break;
         case input.value.includes('÷'):
             input.value = divide(arr[arr.indexOf('÷') - 1], arr[arr.indexOf('÷') + 1]);
-            break;     
+            break;
         default:
             break;
     }
