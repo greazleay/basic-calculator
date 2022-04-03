@@ -1,25 +1,27 @@
-const add = function (a = 0, b = a) {
-    return (Math.round((Number(a) + Number(b)) * 100) / 100);
-};
+class Calculator {
+    static add(a = 0, b = a) {
+        return (Math.round((+a + +b) * 100) / 100);
+    };
 
-const subtract = function (a = 0, b = a) {
-    return (Math.round((Number(a) - Number(b)) * 100) / 100)
-};
+    static subtract(a = 0, b = a) {
+        return (Math.round((+a - +b) * 100) / 100);
+    };
 
-const multiply = function (a = 1, b = a) {
-    return (Math.round((Number(a) * Number(b)) * 100) / 100)
-};
+    static multiply(a = 1, b = a) {
+        return (Math.round((+a * +b) * 100) / 100);
+    };
 
-const divide = function (a = 1, b = a) {
-    return (Math.round((Number(a) / Number(b)) * 100) / 100);
-};
+    static divide(a = 1, b = a) {
+        return (Math.round((+a / +b) * 100) / 100);
+    };
 
-const factorial = function (num) {
-    let factor = 1;
-    for (let i = 1; i <= Number(num); i++) {
-        factor *= i;
-    }
-    return factor;
+    static power(a = 1, b = a) {
+        return (Math.round(Math.pow(+a, +b) * 100) / 100);
+    };
+
+    static factorial(n) { 
+        return n <= 1 ? 1 : n * this.factorial(n - 1) 
+    };
 };
 
 let cleared = true;
@@ -42,28 +44,28 @@ export function clearInput(e) {
     input.value = "0"
 }
 
-export function operate() {
+export function compute() {
     const input = document.querySelector('input');
     const arr = input.value.split(/(\d*\.\d*)|(\d*)/).filter(num => !!num);
 
     switch (true) {
         case input.value.includes('!'):
-            input.value = factorial(arr[arr.indexOf('!') - 1])
+            input.value = Calculator.factorial(arr[arr.indexOf('!') - 1])
             break;
         case input.value.includes('+'):
-            input.value = add(arr[arr.indexOf('+') - 1], arr[arr.indexOf('+') + 1]);
+            input.value = Calculator.add(arr[arr.indexOf('+') - 1], arr[arr.indexOf('+') + 1]);
             break;
         case input.value.includes('-'):
-            input.value = subtract(arr[arr.indexOf('-') - 1], arr[arr.indexOf('-') + 1]);
+            input.value = Calculator.subtract(arr[arr.indexOf('-') - 1], arr[arr.indexOf('-') + 1]);
             break;
         case input.value.includes('×'):
-            input.value = multiply(arr[arr.indexOf('×') - 1], arr[arr.indexOf('×') + 1]);
+            input.value = Calculator.multiply(arr[arr.indexOf('×') - 1], arr[arr.indexOf('×') + 1]);
             break;
         case input.value.includes('÷'):
-            input.value = divide(arr[arr.indexOf('÷') - 1], arr[arr.indexOf('÷') + 1]);
+            input.value = Calculator.divide(arr[arr.indexOf('÷') - 1], arr[arr.indexOf('÷') + 1]);
             break;
         default:
             break;
     }
     cleared = false;
-}
+};

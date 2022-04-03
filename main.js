@@ -1,4 +1,4 @@
-import { fillInput, clearInput, operate } from "./scripts.js";
+import { fillInput, clearInput, compute } from "./scripts.js";
 
 const container = document.createElement('div');
 container.classList.add('container');
@@ -38,7 +38,7 @@ const allButtons = [
     ['7', fillInput], ['8', fillInput], ['9', fillInput], ['×', fillInput],
     ['4', fillInput], ['5', fillInput], ['6', fillInput], ['+', fillInput],
     ['1', fillInput], ['2', fillInput], ['3', fillInput], ['-', fillInput],
-    ['0', fillInput], ['.', fillInput], ['=', operate], ['!', fillInput]
+    ['0', fillInput], ['.', fillInput], ['=', compute], ['!', fillInput]
 ];
 
 allButtons.forEach(item => addButton(item[0], item[1]));
