@@ -1,3 +1,5 @@
+'use-strict';
+
 class Calculator {
     static add(a = 0, b = a) {
         return (Math.round((+a + +b) * 100) / 100);
@@ -46,7 +48,7 @@ export function clearInput(e) {
 
 export function compute() {
     const input = document.querySelector('input');
-    const arr = input.value.split(/(\d*\.\d*)|(\d*)/).filter(num => !!num);
+    const arr = input.value.split(/(\d*\.\d*)|(\d*)/).filter(Boolean);
 
     switch (true) {
         case input.value.includes('!'):
